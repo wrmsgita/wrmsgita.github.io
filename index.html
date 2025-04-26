@@ -20,13 +20,22 @@
       width: 100%;
       background: #333;
       color: #fff;
-      padding: 1em 0;
-      text-align: center;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       z-index: 999;
     }
-    nav a {
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1em;
+    }
+    .nav-links a {
       color: #fff;
-      margin: 0 1em;
       text-decoration: none;
       font-weight: bold;
     }
@@ -35,7 +44,10 @@
       min-height: 100vh;
     }
     #home {
-      background: #f4f4f4;
+      background: url('https://source.unsplash.com/1600x900/?technology,code') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
     }
     #about {
       background: #e2e2e2;
@@ -53,20 +65,26 @@
       max-width: 900px;
       margin: auto;
     }
+    .intro {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <div class="logo">MyLogo</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
   <section id="home">
     <div class="container">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Hello! I'm [Your Name], a passionate developer/designer.</p>
+      <h1 class="intro">Hello! I'm [Your Name], a passionate developer/designer.</h1>
     </div>
   </section>
 
