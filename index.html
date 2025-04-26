@@ -1,173 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        nav {
-            position: fixed;
-            width: 100%;
-            background: #333;
-            color: #fff;
-            padding: 1em 2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1em;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #00bcd4;
-        }
-
-        section {
-            padding: 100px 20px;
-            min-height: 100vh;
-        }
-
-        #home {
-            background: url('https://source.unsplash.com/1600x900/?technology,code') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        #about {
-            background: #e2e2e2;
-        }
-
-        #projects {
-            background: #ccc;
-        }
-
-        #contact {
-            background: #aaa;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .intro {
-            font-size: 2.8em;
-            font-weight: bold;
-            animation: slideIn 1.5s ease-out;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #00bcd4;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #0097a7;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    nav {
+      position: fixed;
+      width: 100%;
+      background: #d63384;
+      color: #fff;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1em;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ffc0cb;
+    }
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
+    #home {
+      background: url('https://source.unsplash.com/1600x900/?technology,code') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    #about {
+      background: #f8d7da;
+    }
+    #projects {
+      background: #f3c6d3;
+    }
+    #contact {
+      background: #f5b7c3;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    .intro {
+      font-size: 2.8em;
+      font-weight: bold;
+      animation: slideIn 1.5s ease-out;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #d63384;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #c2185b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <nav>
-        <div class="logo">MyLogo</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+  <nav>
+    <div class="logo">MyLogo</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <section id="home">
-        <div class="container">
-            <h1 class="intro">Hello! I'm [Your Name], a passionate developer/designer.</h1>
-            <a href="#contact" class="btn">Contact Me</a>
-        </div>
-    </section>
+  <section id="home">
+    <div class="container">
+      <h1 class="intro">Hello! I'm [Your Name], a passionate developer/designer.</h1>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
+  </section>
 
-    <section id="about">
-        <div class="container">
-            <h1>About Me</h1>
-            <p>I love building web applications and learning new technologies.</p>
-        </div>
-    </section>
+  <section id="about">
+    <div class="container">
+      <h1>About Me</h1>
+      <p>I love building web applications and learning new technologies.</p>
+    </div>
+  </section>
 
-    <section id="projects">
-        <div class="container">
-            <h1>Projects</h1>
-            <p>Here are some of my recent works.</p>
-        </div>
-    </section>
+  <section id="projects">
+    <div class="container">
+      <h1>Projects</h1>
+      <p>Here are some of my recent works.</p>
+    </div>
+  </section>
 
-    <section id="contact">
-        <div class="container">
-            <h1>Contact</h1>
-            <p>Email me at your.email@example.com</p>
-        </div>
-    </section>
+  <section id="contact">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Email me at your.email@example.com</p>
+    </div>
+  </section>
 </body>
-
 </html>
