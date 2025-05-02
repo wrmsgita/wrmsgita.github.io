@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Designs</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <body>
+        <nav>
+            <div class="logo">Gita Portfolio</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#Social">Social Life</a>
+                <a href="design.html">Designer</a>
+                <a href="#Dataproject">Data Project</a>
+                <a href="#Contentcreator">Content Creator</a>
+                <a href="#webdeveloper">Web Developer</a>
+            </div>
+        </nav>
+
+
+        <section id="Design" class="reveal">
+            <div class="container">
+                <h1>My Design Works</h1>
+                <div class="cards">
+                    <div class="card design-card" data-title="Design 1" data-img="images/design1.jpg"
+                        data-desc="Desain poster Hari Kemerdekaan.">
+                        <img src="images/design1.jpg" alt="Design 1">
+                        <h3>Design 1</h3>
+                    </div>
+                    <div class="card design-card" data-title="Design 2" data-img="images/design2.jpg"
+                        data-desc="UI mockup aplikasi travel.">
+                        <img src="images/design2.jpg" alt="Design 2">
+                        <h3>Design 2</h3>
+                    </div>
+                    <!-- Tambah lebih banyak -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="designModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <img id="modalImg" src="" alt="" />
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+
+        <script src="js/script.js" defer></script>
+    </body>
+
+</html>

@@ -5,196 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            line-height: 1.6;
-            background: #fff0f5;
-            color: #333;
-        }
-
-        nav {
-            position: fixed;
-            width: 100%;
-            background: #000;
-            color: #fff;
-            padding: 1em 2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo {
-            font-size: 1.7em;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5em;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ff69b4;
-        }
-
-        section {
-            padding: 120px 20px 80px;
-            min-height: 100vh;
-            transition: all 0.5s ease;
-        }
-
-        #home {
-            background: url('./images/background.png') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        #about,
-        #extra-about,
-        #projects,
-        #contact {
-            background: #fff0f5;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            color: #c2185b;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .intro {
-            font-size: 3em;
-            font-weight: bold;
-            background: url('https://source.unsplash.com/800x200/?abstract,pink') no-repeat center center/cover;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            animation: slideIn 1.5s ease-out;
-        }
-
-        #dynamic-text {
-            color: #ffb6c1;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #c2185b;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #ff69b4;
-        }
-
-        .sub-section {
-            margin-top: 50px;
-        }
-
-        .sub-section h2 {
-            margin-bottom: 20px;
-            color: #c2185b;
-            font-size: 2em;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            color: #c2185b;
-        }
-
-        .card p,
-        .card li {
-            font-size: 1em;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <!-- Menghubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
     <nav>
-        <div class="logo">MyLogo</div>
+        <div class="logo">Gita Portfolio</div>
         <div class="nav-links">
             <a href="#home">Home</a>
+            <a href="#about">About</a>
             <a href="#Social">Social Life</a>
-            <a href="#Design">Design</a>
+            <a href="design.html">Designer</a>
             <a href="#Dataproject">Data Project</a>
             <a href="#Contentcreator">Content Creator</a>
-            <a href="#contact">Contact</a>
+            <a href="#webdeveloper">Web Developer</a>
         </div>
     </nav>
 
@@ -208,127 +33,47 @@
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="reveal">
         <div class="container">
             <h1>About Me</h1>
-            <p>I am a recent graduate in Informatics with expertise in various fields, including data analysis, social
-                media (Social Media Specialist), programming, Geographic Information Systems (GIS), graphic design,
-                video editing, and technology development. With experience in various academic and organizational
-                projects, I am committed to continuously growing and contributing to the world of technology, digital
-                innovation, and society.</p>
+            <p>
+                I am a recent graduate in Informatics with expertise in various fields, including data analysis, social
+                media, programming, GIS, graphic design, video editing, and tech development.
+            </p>
         </div>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <h1>Projects</h1>
-            <p>Here are some of my recent works.</p>
+    <div class="sub-section reveal">
+        <h2>What I Love Working On</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Data Scientist</h3>
+                <p>I love diving deep into data and turning raw numbers into insights that drive decisions.</p>
+            </div>
+            <div class="card">
+                <h3>Designer</h3>
+                <p>Creative content, visual branding, and bringing ideas to life is my thing.</p>
+            </div>
+            <div class="card">
+                <h3>Web Developer</h3>
+                <p>I enjoy creating websites that are not only functional but delightful to use.</p>
+            </div>
+            <div class="card">
+                <h3>Content Creator</h3>
+                <p>Making stories that connect with people through video, design, and words.</p>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="extra-about">
-        <div class="container">
-            <h1>More About Me</h1>
-            <p>I'm passionate about combining creativity, technology, and data to solve problems and create meaningful
-                experiences. Every project is an opportunity to learn and grow, and I always strive to bring the best
-                version of myself into everything I do.</p>
-
-            <div class="sub-section">
-                <h2>Take a look at some of the things I love working on:</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Data Scientist</h3>
-                        <p>I love diving deep into data, uncovering patterns, and turning raw numbers into powerful
-                            insights that drive better decisions.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Social Media Specialist</h3>
-                        <p>I enjoy crafting creative content strategies, building authentic connections, and helping
-                            brands grow their online presence.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Web Developer</h3>
-                        <p>Designing and developing websites that are not only visually appealing but also functional
-                            and user-friendly is something I’m passionate about.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Content Creator</h3>
-                        <p>Expressing ideas through videos, writing, and visuals energizes me. I love making meaningful
-                            content that resonates with people.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sub-section">
-                <h2>Experience</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Data Scientist Intern</h3>
-                        <p>XYZ Company - 2024</p>
-                    </div>
-                    <div class="card">
-                        <h3>Social Media Manager</h3>
-                        <p>ABC Brand - 2023</p>
-                    </div>
-                    <div class="card">
-                        <h3>Freelance Web Developer</h3>
-                        <p>2022-Present</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sub-section">
-                <h2>Education</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Bachelor's Degree in Computer Science</h3>
-                        <p>University of Example, 2021</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sub-section">
-                <h2>Certifications</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Data Science Professional Certificate</h3>
-                        <p>Coursera</p>
-                    </div>
-                    <div class="card">
-                        <h3>Full-Stack Web Development</h3>
-                        <p>freeCodeCamp</p>
-                    </div>
-                    <div class="card">
-                        <h3>Social Media Marketing</h3>
-                        <p>HubSpot Academy</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contact">
+    <section id="contact" class="reveal">
         <div class="container">
             <h1>Contact</h1>
             <p>Email me at your.email@example.com</p>
         </div>
     </section>
 
-    <script>
-        const texts = ["Developer", "UI/UX Designer", "Data Scientist"];
-        let count = 0;
-        const dynamicText = document.getElementById("dynamic-text");
-
-        setInterval(() => {
-            dynamicText.style.opacity = 0;
-            setTimeout(() => {
-                count = (count + 1) % texts.length;
-                dynamicText.textContent = texts[count];
-                dynamicText.style.opacity = 1;
-            }, 500);
-        }, 2000);
-    </script>
+    <!-- Menghubungkan file JavaScript eksternal -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
