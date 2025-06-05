@@ -354,16 +354,102 @@
                     index = (index + 1) % phrases.length;
                     setTimeout(typeText, 500);
                 }
-            }
+            @media screen and (max-width: 768px) {
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    nav {
+        width: 100%;
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        margin: 0;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 4rem 1rem 2rem;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .animated-text {
+        font-size: 1.2rem;
+        border-right: 1.5px solid black;
+    }
+
+    .hero-text button {
+        margin: 1rem auto 0;
+        display: block;
+    }
+
+    .social-links {
+        display: flex !important;
+        justify-content: center;
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+
+    .social-links a i {
+        font-size: 24px;
+        margin-left: 8px;
+    }
+
+    .interest-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .about-container {
+        padding: 40px 20px;
+    }
+
+    .about-card {
+        padding: 30px 20px;
+    }
+}
+
 
             typeText();
         });
+
+        
     </script>
 </head>
 
 <body>
     <header>
-        <div>Logo</div>
+        <div>Gita Dwi Putriani’s Portfolio</div>
         <nav>
             <a href="#">Home</a>
             <a href="#">Resume</a>
@@ -451,56 +537,173 @@
     <section class="certification" style="background-color:#fff8f2; padding: 3rem 2rem; text-align:center;">
         <h2 style="font-size:2.5rem; color:#582200; margin-bottom:2rem;">Certification & License</h2>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1000px; margin:0 auto;">
+
+            <!-- Card 1 -->
             <div
                 style="background-color:#F29DA8; border-radius:15px; width:260px; box-shadow:3px 3px 8px rgba(0,0,0,0.15); padding:1rem;">
-                <img src="images/cert1.png" alt="Certification 1"
+                <img src="images/sertifdatascience.jpeg" alt="Certification 1"
                     style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
-                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">Google Data Analytics</h3>
-                <p style="font-size:0.9rem;">Issued by Coursera · 2023</p>
+                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">Data Science</h3>
+                <p style="font-size:0.9rem;">Issued by BPPTIK KOMINFO · 2024</p>
+                <button onclick="openModal(1)"
+                    style="margin-top:1rem; padding: 0.5rem 1rem; background-color:#582200; color:white; border:none; border-radius:8px;">View
+                    More</button>
             </div>
+
+            <!-- Card 2 -->
             <div
                 style="background-color:#F29DA8; border-radius:15px; width:260px; box-shadow:3px 3px 8px rgba(0,0,0,0.15); padding:1rem;">
-                <img src="images/cert2.png" alt="Certification 2"
+                <img src="images/sertifweb.jpeg" alt="Certification 2"
                     style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
-                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">UI/UX Design Specialization</h3>
-                <p style="font-size:0.9rem;">Issued by Coursera · 2024</p>
+                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">Junior Web Developer</h3>
+                <p style="font-size:0.9rem;">Issued by LSP Digital · 2024</p>
+                <button onclick="openModal(2)"
+                    style="margin-top:1rem; padding: 0.5rem 1rem; background-color:#582200; color:white; border:none; border-radius:8px;">View
+                    More</button>
             </div>
+            <!-- Card 3 -->
             <div
                 style="background-color:#F29DA8; border-radius:15px; width:260px; box-shadow:3px 3px 8px rgba(0,0,0,0.15); padding:1rem;">
-                <img src="images/cert3.png" alt="Certification 3"
+                <img src="images/sertif1.jpeg" alt="Certification 3"
                     style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
-                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">AWS Machine Learning</h3>
-                <p style="font-size:0.9rem;">Issued by Amazon · 2023</p>
+                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">Laboratory Assistant Certificate</h3>
+                <p style="font-size:0.9rem;">Issued by University of Bengkulu</p>
+                <button onclick="openModal(3)"
+                    style="margin-top:1rem; padding: 0.5rem 1rem; background-color:#582200; color:white; border:none; border-radius:8px;">View
+                    More</button>
             </div>
+
+            <!-- Modal Sidebar -->
+            <div id="certModal"
+                style="position:fixed; top:0; right:-100%; width:300px; height:100%; background-color:#fff8f2; box-shadow:-5px 0 10px rgba(0,0,0,0.2); transition: right 0.4s ease; padding:2rem; z-index:9999; overflow-y:auto;">
+                <button onclick="closeModal()"
+                    style="position:absolute; top:1rem; right:1rem; font-size:1.5rem; background:none; border:none; color:#582200; cursor:pointer;">×</button>
+                <div id="modalContent" style="color:#582200;"></div>
+            </div>
+
+            <script>
+                const modalData = {
+                    1: `
+      <img src="images/sertifdatascience.jpeg" alt="Data Science Certificate" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+      <h3>Data Science Certificate</h3>
+      <p>Issued by BPPTIK KOMINFO in 2024.</p>
+      <p>Topics: Data Analysis, Python, Machine Learning, and Visualization using real-world datasets.</p>
+    `,
+                    2: `
+      <img src="images/sertifweb.jpeg" alt="Junior Web Developer Certificate" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+      <h3>Junior Web Developer</h3>
+      <p>Issued by LSP Digital in 2024.</p>
+      <p>Skills: HTML, CSS, JavaScript, Bootstrap, and Responsive Design Implementation.</p>
+    `,
+                    3: `
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:10px; margin-bottom:1rem;">
+        <div style="text-align:center;">
+          <img src="images/sertif1.jpeg" alt="Lab Cert 1" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 1</div>
         </div>
-        <button
-            style="margin-top: 2rem; padding: 0.7rem 1.5rem; background-color: #582200; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
-            View More!
-        </button>
+        <div style="text-align:center;">
+          <img src="images/sertif2.jpeg" alt="Lab Cert 2" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 2</div>
+        </div>
+        <div style="text-align:center;">
+          <img src="images/sertif3.jpeg" alt="Lab Cert 3" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 3</div>
+        </div>
+        <div style="text-align:center;">
+          <img src="images/sertif4.jpeg" alt="Lab Cert 4" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 4</div>
+        </div>
+        <div style="text-align:center;">
+          <img src="images/sertif5.jpeg" alt="Lab Cert 5" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 5</div>
+        </div>
+        <div style="text-align:center;">
+          <img src="images/sertif6.jpeg" alt="Lab Cert 6" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 6</div>
+        </div>
+        <div style="text-align:center;">
+          <img src="images/sertif7.jpeg" alt="Lab Cert 7" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 7</div>
+        </div>
+        <div style="text-align:center;">
+          <img src="images/sertif8.jpeg" alt="Lab Cert 8" style="width:100%; border-radius:10px; cursor:pointer; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="font-size:0.85rem; color:#555; margin-top:4px;">Certificate 8</div>
+        </div>
+      </div>
+      <h3>Laboratory Assistant Certificate</h3>
+      <p>Issued by University of Bengkulu.</p>
+      <p>Role: Assisting practical sessions, guiding students in lab exercises, and supporting course delivery.</p>
+    `
+                };
+
+                function openModal(id) {
+                    document.getElementById("modalContent").innerHTML = modalData[id] || "<p>No data found.</p>";
+                    document.getElementById("certModal").style.right = "0";
+                }
+
+                function closeModal() {
+                    document.getElementById("certModal").style.right = "-100%";
+                }
+            </script>
+
+
     </section>
     <section class="achievement"
         style="background: linear-gradient(135deg, #f9d9e4, #f6a6a6); text-align: center; padding: 3rem 2rem;">
         <h2 style="font-size: 2.5rem; color: #582200; margin-bottom: 2rem;">Achievements</h2>
         <div
             style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; max-width: 1000px; margin: auto;">
+
+            <!-- New achievement cards -->
             <div class="card"
                 style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
-                <img src="images/award1.png" alt="Achievement 1"
+                <img src="images/asabri.jpeg" alt="Best Asabri Education Ambassador"
                     style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">Best Data Science Project
-                </p>
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">Best Asabri Education
+                    Ambassador (2nd Place)</p>
             </div>
             <div class="card"
                 style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
-                <img src="images/award2.png" alt="Achievement 2"
+                <img src="images/tiktok_competition.png" alt="TikTok Promotion Competition Winner"
                     style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">UI/UX Design Winner</p>
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">1st Place TikTok Promotion
+                    for Museum Bengkulu 2023</p>
             </div>
             <div class="card"
                 style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
-                <img src="images/award3.png" alt="Achievement 3"
+                <img src="images/poif_design.png" alt="POIF XXIII Design Competition"
                     style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">Hackathon Champion</p>
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">2nd Place POIF XXIII
+                    Design Competition</p>
+            </div>
+            <div class="card"
+                style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
+                <img src="images/bazar_dies_natalis.png" alt="University of Bengkulu Anniversary Bazaar Winner"
+                    style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">1st Place at 41st
+                    University of Bengkulu Anniversary Bazaar</p>
+            </div>
+            <div class="card"
+                style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
+                <img src="images/photography_itexpo.png" alt="Photography Competition Winner"
+                    style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">2nd Place Photography
+                    Competition at IT Expo</p>
+            </div>
+            <div class="card"
+                style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
+                <img src="images/poetry_competition.png" alt="Poetry Writing Competition Winner"
+                    style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">1st Place Poetry Writing
+                    Competition (SMP & SMA Levels)</p>
             </div>
         </div>
         <button
@@ -508,6 +711,7 @@
             View More!
         </button>
     </section>
+
     <section class="activity">
         <div class="activity-container">
             <div class="activity-text">
