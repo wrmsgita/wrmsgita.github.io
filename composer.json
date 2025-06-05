@@ -1,0 +1,15 @@
+{
+    "name": "acer/wrmsgita.github.io",
+    "autoload": {
+        "psr-4": {
+            "Acer\\WrmsgitaGithubIo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wrmsgita",
+            "email": "gitadwiputriani01@gmail.com"
+        }
+    ],
+    "require": {}
+}

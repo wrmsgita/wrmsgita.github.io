@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #ffe6f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #c2185b;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: #c2185b;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 1.5rem auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #a0004c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mental Health Sentiment Analysis using LSTM</h1>
+
+        <p>
+            The project was inspired by my observation of how people express themselves through words on social media.
+            Can mental conditions be analyzed based on what they write? This question led me to explore sentiment
+            analysis for mental health using a deep learning approach.
+        </p>
+
+        <p>
+            Mental health diagnosis should ideally be done by professionals. However, this model can help professionals
+            as a preliminary tool to detect early signs of emotional patterns from text, especially when direct
+            interactions aren't available.
+        </p>
+
+        <h2>Dataset</h2>
+        <p>
+            The dataset used is titled <strong>"Sentiment Analysis for Mental Health"</strong> from Kaggle, with 53,043
+            data points and 7 distinct emotion labels. The dataset is imbalanced and requires preprocessing such as
+            tokenization, stopword removal, and label encoding.
+        </p>
+        <img src="images/mental1.png" alt="Mental Dataset Preview">
+        <img src="images/mental2.png" alt="Mental Dataset Preview"
+            style="width: 60%; display: block; margin: 1.5rem auto; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+
+        <h2>Preprocessing & Handling Class Imbalance</h2>
+        <p>
+            The data undergoes tokenization and is padded to fit LSTM requirements. To address imbalance, class weights
+            are used to give minority classes higher influence during training.
+        </p>
+
+        <h2>Model Architecture</h2>
+        <p>
+            The model is built using LSTM layers for textual input, and merged with a dense layer for numeric input. It
+            uses categorical crossentropy for multi-class classification and softmax as the activation function in the
+            final layer.
+        </p>
+        <p>Model Merging Code</p>
+        <img src="images/marge.png" alt="Model Architecture">
+
+        <h2>Result</h2>
+        <p>
+            The model achieved an accuracy of <strong>80.38%</strong> which shows potential in classifying emotions
+            based on text.
+        </p>
+        <img src="images/akurasi.png" alt="Training Accuracy">
+
+        <h2>Conclusion</h2>
+        <p>
+            This model can serve as a complementary tool for mental health professionals to analyze written expressions
+            of users. Further development can include more advanced architectures or external data to improve accuracy
+            and generalization.
+        </p>
+
+        <footer>
+            &copy; 2025 Gita Dwi Putriani — All rights reserved.
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -4,57 +4,215 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Designs</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Gita Dwi Putriani - Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #FFD5DD;
+            color: #000;
+        }
+
+        header {
+            background-color: #FF809F;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header div {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+        .contact-button {
+            background-color: black;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        section#Design {
+            padding-top: 120px;
+        }
+
+        .container {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 4px solid #FF809F;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #FF809F;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-button:hover {
+            background-color: #ff5e87;
+            transform: scale(1.05);
+        }
+
+        .download-button i {
+            margin-right: 0.5rem;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            filter: brightness(0.9);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.7rem 1rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <body>
+    <header>
+        <div>Logo</div>
         <nav>
-            <div class="logo">Gita Portfolio</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#Social">Social Life</a>
-                <a href="design.html">Designer</a>
-                <a href="#Dataproject">Data Project</a>
-                <a href="#Contentcreator">Content Creator</a>
-                <a href="#webdeveloper">Web Developer</a>
-            </div>
+            <a href="index.html">Home</a>
+            <a href="#">Resume</a>
+            <a href="#">My Interest</a>
+            <a href="#">Activity</a>
+            <button class="contact-button">Contact me</button>
         </nav>
+    </header>
 
+    <section id="Design">
+        <div class="container">
+            <h1>My Design Works</h1>
 
-        <section id="Design" class="reveal">
-            <div class="container">
-                <h1>My Design Works</h1>
-                <div class="cards">
-                    <div class="card design-card" data-title="Design 1" data-img="images/design1.jpg"
-                        data-desc="Desain poster Hari Kemerdekaan.">
-                        <img src="images/design1.jpg" alt="Design 1">
-                        <h3>Design 1</h3>
-                    </div>
-                    <div class="card design-card" data-title="Design 2" data-img="images/design2.jpg"
-                        data-desc="UI mockup aplikasi travel.">
-                        <img src="images/design2.jpg" alt="Design 2">
-                        <h3>Design 2</h3>
-                    </div>
-                    <!-- Tambah lebih banyak -->
-                </div>
+            <!-- Tombol download DITEMPATKAN DI BAWAH tulisan -->
+            <div style="margin-top: 1.2rem;">
+                <a href="/assets/portfolio.pdf" download class="download-button">
+                    <i class="fas fa-file-download"></i> Download Full Portfolio (PDF)
+                </a>
             </div>
-        </section>
-
-        <!-- Modal -->
-        <div id="designModal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2 id="modalTitle"></h2>
-                <img id="modalImg" src="" alt="" />
-                <p id="modalDesc"></p>
+            <div class="cards">
+                <div class="card design-card" data-title="Design 1" data-img="images/design1.jpg"
+                    data-desc="Desain poster Hari Kemerdekaan.">
+                    <img src="../images/design1.png" alt="Design Lebaran">
+                    <div class="card-overlay">Design Lebaran</div>
+                </div>
+                <div class="card design-card" data-title="Design 2" data-img="images/design2.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design2.png" alt="Design 2">
+                    <div class="card-overlay">Design 2</div>
+                </div>
+                <div class="card design-card" data-title="Design 3" data-img="images/design3.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design3.png" alt="Design 2">
+                    <div class="card-overlay">Design 3</div>
+                </div>
+                <div class="card design-card" data-title="Design 4" data-img="images/design4.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design4.png" alt="Design 4">
+                    <div class="card-overlay">Design 4</div>
+                </div>
+                <div class="card design-card" data-title="Design 5" data-img="images/design5.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design5.png" alt="Design 5">
+                    <div class="card-overlay">Design 5</div>
+                </div>
+                <div class="card design-card" data-title="Design 6" data-img="images/design6.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design6.png" alt="Design 6">
+                    <div class="card-overlay">Design 6</div>
+                </div>
+                <div class="card design-card" data-title="Design 7" data-img="images/design7.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design7.png" alt="Design 7">
+                    <div class="card-overlay">Design 7</div>
+                </div>
+                <div class="card design-card" data-title="Design 8" data-img="images/design8.jpg"
+                    data-desc="UI mockup aplikasi travel.">
+                    <img src="../images/design8.png" alt="Design 8">
+                    <div class="card-overlay">Design 8</div>
+                </div>
+                <!-- Tambahkan lebih banyak desain di sini -->
             </div>
         </div>
+    </section>
 
-        <script src="js/script.js" defer></script>
-    </body>
+    <script src="js/script.js" defer></script>
+</body>
 
 </html>

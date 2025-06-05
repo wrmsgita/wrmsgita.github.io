@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio - Gita Dwi Putriani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #FFD5DD;
+            color: #000;
+            /* Buat full width dan hilangkan max-width */
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #FF809F;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header div {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .contact-button {
+            background-color: black;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #333;
+        }
+
+        main {
+            padding: 100px 2rem 2rem;
+            /* beri padding atas agar tidak tertutup header */
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #d6336c;
+            letter-spacing: 1.2px;
+        }
+
+        /* Filter buttons */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filters button {
+            background: #d6336c;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .filters button:hover,
+        .filters button.active {
+            background: #a02751;
+        }
+
+        /* Accordion styles */
+        .accordion h3 {
+            background: #ffd5dd;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            user-select: none;
+            font-weight: 700;
+            color: #822742;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .accordion .content.open {
+            max-height: 1000px;
+            /* large enough for content */
+            transition: max-height 0.6s ease;
+        }
+
+        /* Project cards */
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(214, 51, 108, 0.15);
+            margin-bottom: 15px;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h4 {
+            margin-bottom: 8px;
+            color: #a02751;
+        }
+
+        .project-card p {
+            color: #444;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .project-card a {
+            color: #d6336c;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Slide Sidebar Styles */
+        .slide-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80vw;
+            max-width: 600px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+            transition: right 0.3s ease;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .slide-panel.open {
+            right: 0;
+        }
+
+        .slide-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #d6336c;
+            align-self: flex-end;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .filters {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            main {
+                padding: 100px 1rem 1rem;
+            }
+
+            .slide-panel {
+                width: 100vw;
+                max-width: 100vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>Logo</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Resume</a>
+            <a href="#">My Interest</a>
+            <a href="#">Activity</a>
+            <button class="contact-button">Contact me</button>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Data Analysis Portfolio</h1>
+
+        <!-- Filter Buttons -->
+        <div class="filters">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="cleaning">Data Cleaning</button>
+            <button data-filter="eda">Exploratory Data Analysis (EDA)</button>
+            <button data-filter="modeling">Model Training</button>
+            <button data-filter="dashboard">Dashboard</button>
+        </div>
+
+        <!-- Accordion Sections -->
+        <div class="accordion">
+
+            <h3>Data Cleaning</h3>
+            <div class="content open">
+                <div class="project-card" data-category="cleaning">
+                    <h4>Data Cleaning - Scraping Data Google Review Universitas Bengkulu</h4>
+                    <p>Dataset mentah ini berjumlah 372 data yang discraping di Google Review Uniiversitas Bengkulu.</p>
+                    <a href="reviewunib.html" class="view-report-link">View Report</a>
+                </div>
+                <div class="project-card" data-category="cleaning">
+                    <h4>Outlier Detection</h4>
+                    <p>Identifikasi outlier pada dataset penjualan menggunakan IQR dan Z-score.</p>
+                    <a href="#" class="view-report-link">View Notebook</a>
+                </div>
+            </div>
+
+            <!-- <h3>Exploratory Data Analysis (EDA)</h3>
+            <div class="content">
+                <div class="project-card" data-category="eda">
+                    <h4>Mental Health Survey Analysis</h4>
+                    <p>Visualisasi dan insight awal dari survei kesehatan mental menggunakan matplotlib dan seaborn.</p>
+                    <a href="#" class="view-report-link">View Dashboard</a>
+                </div>
+                <div class="project-card" data-category="eda">
+                    <h4>Sales Trend Analysis</h4>
+                    <p>Analisis tren penjualan bulanan dengan grafik interaktif menggunakan Plotly.</p>
+                    <a href="#" class="view-report-link">View Report</a>
+                </div>
+            </div> -->
+
+            <h3>Model Training & Evaluation</h3>
+            <div class="content">
+                <div class="project-card" data-category="modeling">
+                    <h4>Fraud Detection in Financial Transactions Using Random Forest and SMOTE</h4>
+                    <p>Training the Random Forest model, including the application of regularization parameters such as
+                        limiting tree depth and setting the minimum number of samples per split, to reduce the risk of
+                        overfitting — especially after the oversampling process using SMOTE.</p>
+                    <a href="fraud.html" class="view-report-link">View Code</a>
+                </div>
+                <div class="project-card" data-category="modeling">
+                    <h4>Deep Learning for Mental Health? LSTM-Enhanced Sentiment Detection</h4>
+                    <p>Model LSTM untuk analisis sentimen pada data teks dengan akurasi 85%.</p>
+                    <a href="mental.html" class="view-report-link">View Notebook</a>
+                </div>
+            </div>
+
+            <h3>Dashboard & Visualization</h3>
+            <div class="content">
+                <div class="project-card" data-category="dashboard">
+                    <h4>Mental Health Interactive Dashboard</h4>
+                    <p>Dashboard interaktif untuk visualisasi data kesehatan mental dengan Chart.js.</p>
+                    <a href="#" class="view-report-link">View Dashboard</a>
+                </div>
+                <div class="project-card" data-category="dashboard">
+                    <h4>Company KPI Dashboard</h4>
+                    <p>Dashboard performa perusahaan yang dibuat menggunakan Power BI dan Tableau.</p>
+                    <a href="#" class="view-report-link">View Report</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Slide Sidebar -->
+    <div id="slide-panel" class="slide-panel">
+        <button id="slide-close" class="slide-close">&times;</button>
+        <iframe id="slide-iframe" src="" frameborder="0" style="width:100%; height:100%;"></iframe>
+    </div>
+
+    <script>
+        // Accordion toggle
+        document.querySelectorAll('.accordion h3').forEach(section => {
+            section.addEventListener('click', () => {
+                const content = section.nextElementSibling;
+                content.classList.toggle('open');
+            });
+        });
+
+        // Filter buttons
+        const buttons = document.querySelectorAll('.filters button');
+        const projects = document.querySelectorAll('.project-card');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all buttons
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                projects.forEach(project => {
+                    if (filter === 'all' || project.dataset.category === filter) {
+                        project.style.display = 'block';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Slide sidebar open/close logic
+        const slidePanel = document.getElementById('slide-panel');
+        const slideClose = document.getElementById('slide-close');
+        const slideIframe = document.getElementById('slide-iframe');
+
+        document.querySelectorAll('.view-report-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const url = link.getAttribute('href');
+                if (url === '#') {
+                    alert('Link belum tersedia.');
+                    return;
+                }
+                slideIframe.src = url;
+                slidePanel.classList.add('open');
+            });
+        });
+
+        slideClose.addEventListener('click', () => {
+            slidePanel.classList.remove('open');
+            slideIframe.src = '';
+        });
+    </script>
+</body>
+
+</html>

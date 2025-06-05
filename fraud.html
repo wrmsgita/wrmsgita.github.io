@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fraud Detection Using Random Forest and SMOTE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #fff1f4;
+            color: #222;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #d6336c;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #a02751;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #ffe6ed;
+            border-left: 6px solid #d6336c;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background: #f8f8f8;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            border-left: 5px solid #d6336c;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: #d6336c;
+            font-weight: bold;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Fraud Detection in Financial Transactions Using Random Forest and SMOTE</h1>
+
+    <p>
+        Fraud detection in financial transactions is a significant challenge within the banking and finance industries.
+        Fraudulent activities can result in substantial losses for both companies and customers.
+        Therefore, applying machine learning techniques to detect fraudulent behavior is essential for effective risk
+        mitigation.
+    </p>
+
+    <p>
+        In this project, I utilized the Random Forest algorithm, an ensemble method known for its capability to handle
+        complex
+        and imbalanced datasets. To address the common issue of class imbalance in financial transaction datasets, I
+        implemented
+        the Synthetic Minority Over-sampling Technique (SMOTE). SMOTE generates synthetic samples for the minority class
+        (fraud)
+        to help the model better learn patterns related to fraudulent transactions.
+    </p>
+
+    <h2>Brief Explanation of Random Forest and SMOTE</h2>
+    <p>
+        Random Forest can be envisioned as a collection of decision trees working together.
+        Each tree makes a decision on whether a transaction is fraudulent or not based on learned rules from the
+        training data.
+        The final decision is determined by majority voting across all trees in the forest.
+    </p>
+
+    <p>
+        SMOTE is an oversampling technique designed to handle imbalanced datasets.
+        For example, in a dataset where normal transactions greatly outnumber fraudulent ones,
+        SMOTE generates synthetic fraud samples to balance the dataset, allowing the model to more effectively identify
+        fraud patterns.
+    </p>
+
+    <h2>Dataset and Features</h2>
+    <p>
+        The dataset used in this study is the Credit Card Transactions dataset, which has undergone Principal Component
+        Analysis (PCA)
+        to ensure customer confidentiality. The features analyzed include:
+    </p>
+
+    <ul>
+        <li><strong>Time:</strong> The time at which the transaction occurred, useful for detecting temporal patterns.
+        </li>
+        <li><strong>Amount:</strong> The transaction amount, which can be an indicator of suspicious activity.</li>
+        <li><strong>Features V1 through V28:</strong> PCA-transformed variables that represent original features,
+            although they lack direct interpretability.</li>
+    </ul>
+
+    <p>
+        The model learns the relationship between these features and the target label, where Class = 0 denotes normal
+        transactions
+        and Class = 1 denotes fraudulent transactions.
+    </p>
+
+    <img src="images/fraud.png" alt="Dataset Overview Screenshot" />
+    <img src="images/fraud2.png" alt="Dataset Overview Screenshot" />
+
+    <h2>Analysis Process</h2>
+    <p>
+        First, the dataset was divided into features (X) and target labels (y) by removing the ‘Class’ column from the
+        feature set.
+        The data was then normalized and split into training and testing subsets.
+    </p>
+
+    <p>
+        Next, SMOTE was applied to balance the dataset by synthetically generating samples for the minority fraud class.
+    </p>
+
+    <img src="images/smote.png" alt="SMOTE Implementation Code" />
+
+    <p>
+        Result
+    </p>
+    <img src="images/hasilsmote.png" alt="SMOTE Implementation Code" />
+
+    <p>
+        Subsequently, the Random Forest model was trained with regularization parameters,
+        such as limiting tree depth and setting minimum sample requirements for splits and leaf nodes.
+        These parameters help improve model generalization and reduce overfitting, especially after applying SMOTE.
+    </p>
+
+    <img src="images/randomforest.png" alt="Random Forest Training Code" />
+
+    <h2>Model Evaluation</h2>
+    <p>
+        The model was evaluated using metrics including precision, recall, F1-score, and ROC-AUC to provide a
+        comprehensive assessment
+        in the context of imbalanced classification.
+    </p>
+
+    <p>
+        The evaluation results demonstrated a high recall score, indicating strong ability to detect fraudulent
+        transactions.
+        However, the precision score was relatively low, suggesting that the model produced some false positives —
+        normal transactions misclassified as fraud. The F1-score reflected a balance between precision and recall,
+        while the high ROC-AUC score indicated the model’s effectiveness in distinguishing between the two classes.
+    </p>
+
+    <img src="images/evaluasirf.png" alt="Model Evaluation Metrics" />
+
+    <h2>Conclusion</h2>
+    <p>
+        The model performs well in detecting fraud with high sensitivity but requires further improvement to reduce
+        false positives
+        and enhance precision. Potential enhancements include hyperparameter tuning and techniques to improve model
+        generalization,
+        which could increase performance on unseen data.
+    </p>
+
+</body>
+
+</html>

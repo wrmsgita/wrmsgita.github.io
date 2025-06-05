@@ -4,76 +4,558 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <!-- Menghubungkan file CSS eksternal -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Gita Dwi Putriani - Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #FFD5DD;
+            color: #000;
+        }
+
+        header {
+            background-color: #FF809F;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header div {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+        .contact-button {
+            background-color: black;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            background-color: #F6A6A6;
+            margin-top: 80px;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .animated-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #582200;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            height: 2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid black;
+            width: fit-content;
+        }
+
+        .hero-text button {
+            background-color: black;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: none;
+            padding-left: 1rem;
+        }
+
+        .social-links a {
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a i {
+            color: #000;
+            font-size: 30px;
+            transition: transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .social-links a i:hover {
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        .about {
+            padding: 60px 20px;
+            background: linear-gradient(to right, #f0f4f8, #e8ecf4);
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .about h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #3498db;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .about-text .highlight {
+            color: #FF809F;
+            font-weight: bold;
+        }
+
+        .about-container {
+            width: 100%;
+            background: linear-gradient(to right, #f8fbff, #eef2f7);
+            padding: 80px 60px;
+            /* padding kiri kanan lebih besar */
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-card {
+            max-width: 1400px;
+            /* container makin lebar */
+            width: 100%;
+            background-color: #ffffff;
+            padding: 60px 80px;
+            /* padding dalam lebih lega */
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .about-card h2 {
+            font-size: 3rem;
+            color: #FF809F;
+            margin-bottom: 30px;
+            border-left: 6px solid #582200;
+            padding-left: 16px;
+        }
+
+        .about-card p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #a0004c;
+        }
+
+        .highlight {
+            color: #e67e22;
+            font-weight: 600;
+        }
+
+        .interest {
+            background-color: #FFD5DD;
+            text-align: center;
+        }
+
+        .interest h2 {
+            font-size: 2.5rem;
+            color: #582200;
+            margin-bottom: 2rem;
+        }
+
+        .interest-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card {
+            background-color: #F29DA8;
+            border-radius: 15px;
+            width: 220px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card p {
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            color: #582200;
+        }
+
+        .activity-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+            /* biar responsif kalau layar kecil */
+        }
+
+        .activity-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .activity-img img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+
+        .activity-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-text p {
+            margin-bottom: 1rem;
+        }
+
+        .connect {
+            text-align: center;
+            background-color: #F29DA8;
+            padding: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleSocialLinks() {
+            const links = document.getElementById('socialLinks');
+            links.style.display = links.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const phrases = [
+                "Insight-Driven Data Scientist",
+                "Designer UI/UX Enthusiast",
+                "Web Developer Enthusiast",
+                "Geographic Information System Enthusiast"
+            ];
+            let index = 0;
+            let charIndex = 0;
+            const animatedText = document.getElementById('animatedText');
+
+            function typeText() {
+                if (charIndex < phrases[index].length) {
+                    animatedText.textContent += phrases[index].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 100);
+                } else {
+                    setTimeout(eraseText, 2000);
+                }
+            }
+
+            function eraseText() {
+                if (charIndex > 0) {
+                    animatedText.textContent = phrases[index].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(eraseText, 50);
+                } else {
+                    index = (index + 1) % phrases.length;
+                    setTimeout(typeText, 500);
+                }
+            }
+
+            typeText();
+        });
+    </script>
 </head>
 
 <body>
-    <nav>
-        <div class="logo">Gita Portfolio</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#Social">Social Life</a>
-            <a href="design.html">Designer</a>
-            <a href="#Dataproject">Data Project</a>
-            <a href="#Contentcreator">Content Creator</a>
-            <a href="#webdeveloper">Web Developer</a>
-        </div>
-    </nav>
+    <header>
+        <div>Logo</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Resume</a>
+            <a href="#">My Interest</a>
+            <a href="#">Activity</a>
+            <button class="contact-button">Contact me</button>
+        </nav>
+    </header>
 
-    <section id="home">
-        <div class="container">
-            <h1 class="intro">
-                Hello! I'm Gita Dwi Putriani, a passionate
-                <span id="dynamic-text">Data Scientist</span>
-            </h1>
-            <a href="#contact" class="btn">Contact Me</a>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Hallo!<br />I'm Gita Dwi Putriani</h1>
+            <p id="animatedText" class="animated-text"></p>
+            <button onclick="toggleSocialLinks()">More About Me</button>
+            <div id="socialLinks" class="social-links">
+                <a href="https://www.linkedin.com/in/username" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/username" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/gitakss.png" alt="Gita"
+                style="width: 300px; border-radius: 100px; transform: scale(1.3);" />
         </div>
     </section>
 
-    <section id="about" class="reveal">
-        <div class="container">
-            <h1>About Me</h1>
+    <section class="about-container">
+        <div class="about-card">
+            <h2>About Me!</h2>
             <p>
-                I am a recent graduate in Informatics with expertise in various fields, including data analysis, social
-                media, programming, GIS, graphic design, video editing, and tech development.
+                <p>
+                    I'm <strong>Gita Dwi Putriani</strong>, a fresh graduate in <span
+                        class="highlight">Informatics</span> with a strong passion for technology and digital
+                    innovation. I have a deep interest in
+                    <span class="highlight">Data Analysis</span>, <span class="highlight">Web Development</span>, <span
+                        class="highlight">Design</span>, <span class="highlight">GIS</span>, and
+                    <span class="highlight">Content Creation</span>. I believe that technology is a powerful bridge to
+                    create real-world solutions, and I'm committed to continuous learning and contributing to digital
+                    transformation in society.
+                </p>
+
+            </p>
+            <p>
+                My goal is to create solutions that are not only intelligent, but also impactful and meaningful
+                to people.
             </p>
         </div>
     </section>
 
-    <div class="sub-section reveal">
-        <h2>What I Love Working On</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Data Scientist</h3>
-                <p>I love diving deep into data and turning raw numbers into insights that drive decisions.</p>
+
+    <section class="interest">
+        <h2>Area of Interest</h2>
+        <div class="interest-cards">
+            <a href="datascientist.html" class="card-link">
+                <div class="card">
+                    <img src="images/datascien.png" alt="data scientist" />
+                    <p>DATA SCIENTIST</p>
+                </div>
+            </a>
+            <a href="design.html" class="card-link">
+                <div class="card">
+                    <img src="images/desain.png" alt="designer" />
+                    <p>DESIGNER</p>
+                </div>
+            </a>
+            <a href="webdeveloper.html" class="card-link">
+                <div class="card">
+                    <img src="images/web.png" alt="web developer" />
+                    <p>WEB DEVELOPER</p>
+                </div>
+            </a>
+            <a href="webdeveloper.html" class="card-link">
+                <div class="card">
+                    <img src="images/peta.png" alt="web developer" />
+                    <p>GEOGRAPHIC INFORMATION SYSTEM</p>
+                </div>
+            </a>
+            <a href="contentcreator.html" class="card-link">
+                <div class="card">
+                    <img src="images/content.png" alt="content creator" />
+                    <p>CONTENT CREATOR</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="certification" style="background-color:#fff8f2; padding: 3rem 2rem; text-align:center;">
+        <h2 style="font-size:2.5rem; color:#582200; margin-bottom:2rem;">Certification & License</h2>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:1000px; margin:0 auto;">
+            <div
+                style="background-color:#F29DA8; border-radius:15px; width:260px; box-shadow:3px 3px 8px rgba(0,0,0,0.15); padding:1rem;">
+                <img src="images/cert1.png" alt="Certification 1"
+                    style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">Google Data Analytics</h3>
+                <p style="font-size:0.9rem;">Issued by Coursera · 2023</p>
             </div>
-            <div class="card">
-                <h3>Designer</h3>
-                <p>Creative content, visual branding, and bringing ideas to life is my thing.</p>
+            <div
+                style="background-color:#F29DA8; border-radius:15px; width:260px; box-shadow:3px 3px 8px rgba(0,0,0,0.15); padding:1rem;">
+                <img src="images/cert2.png" alt="Certification 2"
+                    style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">UI/UX Design Specialization</h3>
+                <p style="font-size:0.9rem;">Issued by Coursera · 2024</p>
             </div>
-            <div class="card">
-                <h3>Web Developer</h3>
-                <p>I enjoy creating websites that are not only functional but delightful to use.</p>
-            </div>
-            <div class="card">
-                <h3>Content Creator</h3>
-                <p>Making stories that connect with people through video, design, and words.</p>
+            <div
+                style="background-color:#F29DA8; border-radius:15px; width:260px; box-shadow:3px 3px 8px rgba(0,0,0,0.15); padding:1rem;">
+                <img src="images/cert3.png" alt="Certification 3"
+                    style="width:100%; height:150px; object-fit:cover; border-radius:10px;">
+                <h3 style="color:#582200; margin-top:1rem; font-size:1.2rem;">AWS Machine Learning</h3>
+                <p style="font-size:0.9rem;">Issued by Amazon · 2023</p>
             </div>
         </div>
-    </div>
+        <button
+            style="margin-top: 2rem; padding: 0.7rem 1.5rem; background-color: #582200; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            View More!
+        </button>
+    </section>
+    <section class="achievement"
+        style="background: linear-gradient(135deg, #f9d9e4, #f6a6a6); text-align: center; padding: 3rem 2rem;">
+        <h2 style="font-size: 2.5rem; color: #582200; margin-bottom: 2rem;">Achievements</h2>
+        <div
+            style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; max-width: 1000px; margin: auto;">
+            <div class="card"
+                style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
+                <img src="images/award1.png" alt="Achievement 1"
+                    style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">Best Data Science Project
+                </p>
+            </div>
+            <div class="card"
+                style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
+                <img src="images/award2.png" alt="Achievement 2"
+                    style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">UI/UX Design Winner</p>
+            </div>
+            <div class="card"
+                style="background-color: #F29DA8; border-radius: 15px; width: 220px; box-shadow: 3px 3px 8px rgba(0,0,0,0.15);">
+                <img src="images/award3.png" alt="Achievement 3"
+                    style="width: 100%; height: 150px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <p style="padding: 1rem; font-weight: bold; font-size: 1rem; color: #582200;">Hackathon Champion</p>
+            </div>
+        </div>
+        <button
+            style="margin-top: 2rem; padding: 0.7rem 1.5rem; background-color: #582200; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            View More!
+        </button>
+    </section>
+    <section class="activity">
+        <div class="activity-container">
+            <div class="activity-text">
+                <h3>ACTIVITY</h3>
+                <p><strong>Founder – Awatara Foundation</strong><br />
+                    Founded a social-based community in Bengkulu Province dedicated to introducing and promoting
+                    technology
+                    to the public, aiming to enhance digital literacy and technological empowerment across local
+                    communities.</p>
 
-    <section id="contact" class="reveal">
-        <div class="container">
-            <h1>Contact</h1>
-            <p>Email me at your.email@example.com</p>
+                <p><strong>Social Volunteer</strong><br />
+                    Participated in various social initiatives such as SDGs-related programs and Gema Loka, supporting
+                    community development, sustainability goals, and youth involvement in social change.</p>
+
+                <p><strong>Leadership Coordinator – Student Organizations</strong><br />
+                    Served in multiple leadership roles during university, including as a coordinator and active member
+                    in
+                    HIMATIF (Informatics Student Association) and BEM (Student Executive Board) at the Faculty of
+                    Engineering, University of Bengkulu. Contributed to organizing events, leading teams, and
+                    representing
+                    student aspirations.</p>
+            </div>
+
+            <div class="activity-img">
+                <img src="images/awatara.JPG" alt="activity image" />
+            </div>
         </div>
     </section>
 
-    <!-- Menghubungkan file JavaScript eksternal -->
-    <script src="js/script.js"></script>
+    <section class="connect">
+        LET’S CONNECT!
+    </section>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const aboutImg = document.querySelector('.about-img-animate');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // hanya sekali
+                }
+            });
+        });
+
+        observer.observe(aboutImg);
+    });
+</script>
 
 </html>

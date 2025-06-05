@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Cleaning - Google Review UNIB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #fff1f4;
+      color: #222;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #d6336c;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #a02751;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-box {
+      background: #ffe6ed;
+      border-left: 6px solid #d6336c;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-block {
+      background: #f8f8f8;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      border-left: 5px solid #d6336c;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #d6336c;
+      font-weight: bold;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Data Cleaning - Scraping Google Reviews for Universitas Bengkulu</h1>
+
+  <p>
+    The data used comes from <strong>scraped user reviews on Google Reviews</strong> for Universitas Bengkulu.
+    A total of <strong>372 entries</strong> were obtained, containing various columns such as user names, review dates,
+    ratings, and review comments.
+  </p>
+
+  <p>
+    As is common with scraped data, this dataset contains a lot of <em>noise</em> and
+    <strong>irregular structure</strong>. Therefore, a cleaning process is necessary to prepare the data
+    for further analysis.
+  </p>
+
+  <h2>Initial Dataset</h2>
+  <p>Below is a preview of the scraped dataset before the cleaning process:</p>
+  <img src="images/datasetsebelum.png" alt="Preview of Initial Google Review UNIB Dataset">
+
+  <div class="highlight-box">
+    <p><strong>Issues Identified:</strong></p>
+    <ul>
+      <li>Several irrelevant columns such as: <code>dSlJg</code>, <code>znYl0</code>, <code>NBa7we src</code>, and
+        others.</li>
+      <li>Column names are not descriptive and still use default names generated automatically.</li>
+    </ul>
+  </div>
+
+  <h2>Cleaning Steps</h2>
+  <p>To ensure the data is ready for analysis, the following cleaning steps were carried out:</p>
+
+  <div class="code-block">
+    <ul>
+      <li>Removing unnecessary columns:<br>
+        <code>d4r55</code>, <code>znYl0</code>, <code>eaLgGf</code>, <code>hCCjke</code>, <code>RfnDt</code>,
+        <code>dSlJg</code>, <code>dSlJg 2</code>, <code>znYl0 2</code>
+      </li>
+      <li>Renaming columns to more informative names:<br>
+        <code>rsqaWe</code> → <code>Year</code>, <code>wiI7pd</code> → <code>Review</code>
+      </li>
+      <li>Removing empty rows or comments that contain only emojis.</li>
+    </ul>
+  </div>
+
+  <h2>Cleaned Data Result</h2>
+  <p>Below is a preview of the dataset after the cleaning process:</p>
+  <img src="images/dataclean.png" alt="Preview of Cleaned Google Review UNIB Dataset">
+
+  <p>
+    Next, the cleaned data will be managed in Google Colab for
+    <strong>exploratory data analysis (EDA)</strong> and <strong>further modeling</strong>.
+  </p>
+
+
+</body>
+
+</html>
