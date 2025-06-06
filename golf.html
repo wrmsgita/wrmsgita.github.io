@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Cleaning - Golf Dataset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #fff1f4;
+            color: #222;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #d6336c;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #a02751;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #ffe6ed;
+            border-left: 6px solid #d6336c;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background: #f8f8f8;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            border-left: 5px solid #d6336c;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: #d6336c;
+            font-weight: bold;
+        }
+
+        a.back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Multivariate Outlier Detection - Golf Dataset</h2>
+
+    <p>
+        In this project, we worked with a <strong>Golf dataset</strong> consisting of 7,664 rows. The goal was to detect
+        and remove multivariate outliers to improve the quality and reliability of the data for further analysis.
+    </p>
+
+    <p>
+        As a first step, we removed several columns that were irrelevant to our numerical analysis:
+    </p>
+
+    <ul>
+        <li><code>ID</code></li>
+        <li><code>Date</code></li>
+        <li><code>Weekday</code></li>
+        <li><code>Month</code></li>
+        <li><code>EmailCampaign</code></li>
+        <li><code>MaintenanceTask</code></li>
+        <li><code>Holiday</code></li>
+    </ul>
+
+    <p>
+        We focused on the following numerical features:
+    </p>
+
+    <ul>
+        <li><code>Temperature</code></li>
+        <li><code>Humidity</code></li>
+        <li><code>Windy</code></li>
+        <li><code>Crowdedness</code></li>
+        <li><code>PlayTimeHour</code></li>
+    </ul>
+
+    <p>
+        Outlier detection was performed using <strong>Mahalanobis Distance</strong>, a statistical technique that
+        considers correlations between variables to identify data points that deviate significantly from the
+        multivariate mean.
+    </p>
+
+    <p>
+        To compute Mahalanobis Distance robustly, we used <code>MinCovDet</code> (Minimum Covariance Determinant), which
+        provides a robust estimate of the data's center and spread. A chi-square threshold (at 99% confidence) was
+        applied to classify extreme values as outliers.
+    </p>
+
+    <div class="highlight-box">
+        <p><strong>Benefits of Multivariate Outlier Removal:</strong></p>
+        <ul>
+            <li>Removes unusual combinations of values, not just extremes in single variables.</li>
+            <li>Improves model accuracy and reduces distortion in analysis.</li>
+            <li>Creates a cleaner dataset that better represents typical conditions.</li>
+        </ul>
+    </div>
+
+    <p>
+        Below are visual comparisons showing data before and after outlier removal using boxplots and scatterplots:
+    </p>
+
+    <img src="images/outlier1.png" alt="Boxplot Before Outlier Removal">
+    <p>
+        As a result, the dataset became significantly cleaner and more suitable for further analysis, such as
+        prediction, segmentation, or behavior modeling.
+    </p>
+
+</body>
+
+</html>
