@@ -354,96 +354,10 @@
                     index = (index + 1) % phrases.length;
                     setTimeout(typeText, 500);
                 }
-            @media screen and (max-width: 768px) {
-    .about-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav a {
-        margin: 0 0.5rem;
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-
-    nav {
-        width: 100%;
-        margin-top: 0.5rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 0.5rem;
-    }
-
-    nav a {
-        margin: 0;
-        padding: 0.3rem 0.5rem;
-        font-size: 0.85rem;
-    }
-
-    .hero {
-        flex-direction: column;
-        padding: 4rem 1rem 2rem;
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-
-    .animated-text {
-        font-size: 1.2rem;
-        border-right: 1.5px solid black;
-    }
-
-    .hero-text button {
-        margin: 1rem auto 0;
-        display: block;
-    }
-
-    .social-links {
-        display: flex !important;
-        justify-content: center;
-        padding-left: 0;
-        margin-top: 1rem;
-    }
-
-    .social-links a i {
-        font-size: 24px;
-        margin-left: 8px;
-    }
-
-    .interest-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-        max-width: 300px;
-    }
-
-    .about-container {
-        padding: 40px 20px;
-    }
-
-    .about-card {
-        padding: 30px 20px;
-    }
-}
-
+            }
 
             typeText();
         });
-
-        
     </script>
 </head>
 
@@ -453,8 +367,8 @@
         <nav>
             <a href="#">Home</a>
             <a href="#">Resume</a>
-            <a href="#">My Interest</a>
-            <a href="#">Activity</a>
+            <a href="#interest">My Interest</a>
+            <a href="#activity">Activity</a>
             <button class="contact-button">Contact me</button>
         </nav>
     </header>
@@ -499,7 +413,7 @@
     </section>
 
 
-    <section class="interest">
+    <section id="interest" class="interest">
         <h2>Area of Interest</h2>
         <div class="interest-cards">
             <a href="datascientist.html" class="card-link">
@@ -712,7 +626,7 @@
         </button>
     </section>
 
-    <section class="activity">
+    <section id="activity" class="activity">
         <div class="activity-container">
             <div class="activity-text">
                 <h3>ACTIVITY</h3>
